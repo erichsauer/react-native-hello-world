@@ -27,14 +27,14 @@ export default function App()
         {name ? `Hi ${name}!` : `What is your name?`}
       </Text>
       <TextInput
-        style={{padding: 8, backgroundColor: 'white', width: 100, marginBottom: 50}} />
+        style={{ padding: 8, backgroundColor: 'white', width: 100, marginBottom: 50 }} onChangeText={text => setName(text)}
+        secureTextEntry={true}
+      />
       <ScrollView horizontal={true}>
-        <Image style={{...styles.image, borderColor: 'red'}} source={kitten}/>
-        <Image style={{...styles.image, borderColor: 'green'}} source={kitten}/>
-        <Image style={{...styles.image, borderColor: 'blue'}} source={kitten}/>
-        <Image style={{...styles.image, borderColor: 'orange'}} source={kitten}/>
-        <Image style={{ ...styles.image, borderColor: 'purple' }} source={kitten}
-         onPress={{}} />
+            <Kitten borderColor='red' />
+            <Kitten borderColor='green' />
+            <Kitten borderColor='blue' />
+            <Kitten borderColor='purple' />
       </ScrollView>
     </View>
   );
@@ -54,3 +54,7 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
+
+export const Kitten = ({ borderColor }) => (
+  <Image style={{...styles.image, borderColor}} source={kitten}/>
+  );
